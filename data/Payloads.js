@@ -1,4 +1,4 @@
-export const PAYLAODS ={
+export const PAYLOADS ={
 
     login: {
   "email": "testing007@gmail.com",
@@ -18,9 +18,5 @@ update_testimonial: {
   "rating": 5
 },
 
-delete_testimonial: {
-  "success": true,
-  "message": "Testimonial deleted successfully"
-}
 
 };

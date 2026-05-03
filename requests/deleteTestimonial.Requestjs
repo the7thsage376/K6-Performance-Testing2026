@@ -1,0 +1,10 @@
+import http from 'k6/http';
+import { URLs } from '../config/urls';
+
+export function deleteTestimonialRequest(payload){
+
+    const url = URLs.delete_testimonial
+    const body = JSON.stringify(payload)
+
+    return http.put(url, body)
+}
