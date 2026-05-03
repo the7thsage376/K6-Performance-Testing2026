@@ -1,6 +1,6 @@
 export const TEST_CONFIG ={
     vus: 10,
-    duration: 10
+    duration: '10s'
 
 };
 

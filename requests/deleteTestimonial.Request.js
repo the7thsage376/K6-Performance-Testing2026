@@ -6,5 +6,5 @@ export function deleteTestimonialRequest(payload){
     const url = URLs.delete_testimonial
     const body = JSON.stringify(payload)
 
-    return http.put(url, body)
+    return http.delete(url, body)
 }
