@@ -3,7 +3,7 @@ import {TEST_CONFIG} from '../config/constant.js';
 import {PAYLOADS} from '../data/Payloads.js';
 import {loginRequest} from '../requests/authRequest.js';
 import {validateResponse} from '../checks/authChecks.js';
-import {sleep} from 'k6';
+
 
 
 export const options = {

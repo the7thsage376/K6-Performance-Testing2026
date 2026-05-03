@@ -1,5 +1,5 @@
 import http from 'k6/http';
-import { URLs } from '../config/urls';
+import { URLs } from '../config/urls.js';
 
 export function updateTestimonialRequest(payload){
 
