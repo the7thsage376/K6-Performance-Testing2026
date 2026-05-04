@@ -1,10 +1,16 @@
 import http from 'k6/http';
 import { URLs } from '../config/urls.js';
+import { HEADERS } from '../config/constant.js';
 
-export function deleteTestimonialRequest(payload){
+export function deleteTestimonialRequest(token, id){
 
-    const url = URLs.delete_testimonial
-    const body = JSON.stringify(payload)
+    const url = URLs.delete_testimonial(id);
+   
+     const headers = {
+                ...HEADERS.json, 
+                'Authorization': `Bearer ${token}` 
+            };
+    
 
-    return http.delete(url, body)
+    return http.delete(url, { headers });
 }
