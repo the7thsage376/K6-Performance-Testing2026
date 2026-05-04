@@ -1,0 +1,23 @@
+name: k6 Performance Test Workflow
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  k6_test:
+    name: Peformance Tests with k6
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Run k6 login test
+        uses: grafana/k6-action@v0.3.1
+        with:
+          filename: tests/loginTest.js

@@ -2,6 +2,7 @@ import http from 'k6/http';
 import { TEST_CONFIG } from '../config/constant.js';
 import { PAYLOADS } from '../data/Payloads.js';
 import { updateTestimonialRequest } from '../requests/updateTestimonialRequest.js';
+import { postTestimonialRequest } from '../requests/postTestimonialRequest.js';
 import {  loginRequest} from '../requests/authRequest.js';
 import { validateResponse } from '../checks/authChecks.js';
 
@@ -17,7 +18,7 @@ export default function updateTestimonialTest(){
 
     // Get the token
     const token = loginResponse.json().data.token;
-    const id= loginResponsejson().data.id;
+    const id= loginResponse.json().data.id;
 
     const response =updateTestimonialRequest(PAYLOADS.update_testimonial, token, id);
 
