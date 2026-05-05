@@ -17,6 +17,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Create dummy Payloads file
+        run: |
+          mkdir -p data
+          echo 'export const PAYLOADS = { login: { "email": __ENV.USER_EMAIL, "password": __ENV.USER_PASSWORD }, post_testimonial: { "title": "", "content": "", "rating": 5, "isPublic": true }, update_testimonial: { "title": "", "content": "", "rating": 5 } };' > data/Payloads.js
+
       - name: Run k6 login test
         uses: grafana/k6-action@v0.3.1
         with:
