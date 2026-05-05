@@ -37,3 +37,11 @@ jobs:
           flags: >
             --env USER_EMAIL=${{ secrets.EMAIL }}
             --env USER_PASSWORD=${{ secrets.PASSWORD }}
+
+      - name: Run k6 Post Testimonial Test
+        uses: grafana/k6-action@v0.3.1
+        with:
+          filename: tests/postTestimonialTest.js
+          flags: >
+            --env USER_EMAIL=${{ secrets.EMAIL }}
+            --env USER_PASSWORD=${{ secrets.PASSWORD }}
