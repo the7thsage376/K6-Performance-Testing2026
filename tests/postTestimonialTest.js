@@ -1,7 +1,7 @@
 import http from 'k6/http';
 import { TEST_CONFIG } from '../config/constant.js';
 import { PAYLOADS } from '../data/Payloads.js';
-import { postTestimonialRequest } from '../requests/PostTestimonialRequest.js';
+import { postTestimonialRequest } from '../requests/postTestimonialRequest.js';
 import {  loginRequest} from '../requests/authRequest.js';
 import { validateResponse } from '../checks/authChecks.js';
 
