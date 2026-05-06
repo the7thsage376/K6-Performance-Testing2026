@@ -2,9 +2,7 @@ import { check } from 'k6';
 
 export function validateResponse(response){
     return check(response, {
-        'status is 200': (res) => res.status === 200,
-
-        'status is 201': (res) => res.status === 201,
+        'status is 200 or 201': (res) => res.status === 200 || res.status === 201,
        
         'body is not empty': (res) => res.body.length > 0
 

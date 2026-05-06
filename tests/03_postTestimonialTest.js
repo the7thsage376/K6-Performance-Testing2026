@@ -1,8 +1,8 @@
 import http from 'k6/http';
 import { TEST_CONFIG } from '../config/constant.js';
 import { PAYLOADS } from '../data/Payloads.js';
-import { postTestimonialRequest } from '../requests/postTestimonialRequest.js';
-import {  loginRequest} from '../requests/authRequest.js';
+import { postTestimonialRequest } from '../requests/03_postTestimonialRequest.js';
+import {  loginRequest} from '../requests/01_authRequest.js';
 import { validateResponse } from '../checks/authChecks.js';
 
 export const options = {

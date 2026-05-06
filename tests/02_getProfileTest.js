@@ -1,7 +1,7 @@
 import { sleep } from 'k6';
 import { TEST_CONFIG } from '../config/constant.js';
-import { loginRequest } from '../requests/authRequest.js';
-import { getProfile } from '../requests/profileRequest.js';
+import { loginRequest } from '../requests/01_authRequest.js';
+import { getProfile } from '../requests/02_profileRequest.js';
 import { validateResponse } from '../checks/authChecks.js';
 import { PAYLOADS } from '../data/Payloads.js';
 

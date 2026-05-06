@@ -2,6 +2,7 @@ import http from 'k6/http';
 import { URLs } from '../config/urls.js';
 import { HEADERS } from '../config/constant.js';
 
+
 export function deleteTestimonialRequest(token, id){
 
     const url = URLs.delete_testimonial(id);
@@ -12,5 +13,5 @@ export function deleteTestimonialRequest(token, id){
             };
     
 
-    return http.delete(url, { headers });
+    return http.del(url, null, { headers });
 }
