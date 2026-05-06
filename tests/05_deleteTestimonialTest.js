@@ -23,14 +23,11 @@ export default function deleteTestimonial() {
     const body = postResponse.json();
     const TestimonialId= body?.data?.Id;
 
-    sleep(1); // Simulate user think time
-    
     // delete testimonial
     const response =deleteTestimonialRequest(token, TestimonialId);
 
     console.log(`FULL DELETE URL: ${URLs.delete_testimonial(TestimonialId)}`);
-
-     console.log(`Response status: ${response.status}`);
+    console.log(`Response status: ${response.status}`);
     console.log(`Response body: ${response.body}`);
     validateResponse(response);
 }

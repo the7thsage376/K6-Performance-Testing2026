@@ -6,7 +6,7 @@ import { postTestimonialRequest } from '../requests/03_postTestimonialRequest.js
 import {  loginRequest} from '../requests/01_authRequest.js';
 import { validateResponse } from '../checks/authChecks.js';
 import { URLs } from '../config/urls.js';
-import { sleep } from 'k6';
+
 
 export const options = {
     vus: TEST_CONFIG.vus,
@@ -27,12 +27,10 @@ export default function updateTestimonialTest(){
     const body = postResponse.json();
     const TestimonialId= body?.data?.Id;
 
-    sleep(1); // Simulate user think time
 
     const response =updateTestimonialRequest(PAYLOADS.update_testimonial, token, TestimonialId);
 
      console.log(`FULL UPDATE URL: ${URLs.update_testimonial(TestimonialId)}`);
-
     console.log(`Response status: ${response.status}`);
     console.log(`Response body: ${response.body}`);
     validateResponse(response)
