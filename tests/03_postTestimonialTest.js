@@ -1,4 +1,3 @@
-import http from 'k6/http';
 import { TEST_CONFIG } from '../config/constant.js';
 import { PAYLOADS } from '../data/Payloads.js';
 import { postTestimonialRequest } from '../requests/03_postTestimonialRequest.js';

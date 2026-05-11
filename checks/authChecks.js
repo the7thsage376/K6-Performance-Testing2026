@@ -8,5 +8,4 @@ export function validateResponse(response){
 
     });
 }
-
-// come back to add a few more validations 
+ 

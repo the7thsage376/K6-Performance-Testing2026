@@ -1,4 +1,3 @@
-import http from 'k6/http';
 import { TEST_CONFIG } from '../config/constant.js';
 import { PAYLOADS } from '../data/Payloads.js';
 import { updateTestimonialRequest } from '../requests/04_updateTestimonialRequest.js';
@@ -20,7 +19,6 @@ export default function updateTestimonialTest(){
 
     // Get the token
     const token = loginResponse.json()?.data?.token;
-    const id = loginResponse.json()?.data?.Id;
 
     //create testimonial to update
     const postResponse = postTestimonialRequest(PAYLOADS.post_testimonial, token);
@@ -30,7 +28,7 @@ export default function updateTestimonialTest(){
 
     const response =updateTestimonialRequest(PAYLOADS.update_testimonial, token, TestimonialId);
 
-     console.log(`FULL UPDATE URL: ${URLs.update_testimonial(TestimonialId)}`);
+    console.log(`FULL UPDATE URL: ${URLs.update_testimonial(TestimonialId)}`);
     console.log(`Response status: ${response.status}`);
     console.log(`Response body: ${response.body}`);
     validateResponse(response)

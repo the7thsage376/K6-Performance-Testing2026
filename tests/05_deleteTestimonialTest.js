@@ -5,11 +5,10 @@ import { PAYLOADS } from '../data/Payloads.js';
 import { TEST_CONFIG } from '../config/constant.js';
 import { validateResponse } from '../checks/authChecks.js';
 import { URLs } from '../config/urls.js';
-import { sleep } from 'k6';
 
 const options = {
-    vus:TEST_CONFIG.VUS,
-    duration:TEST_CONFIG.DURATION,
+    vus:TEST_CONFIG.vus,
+    duration:TEST_CONFIG.duration,
 };
 
 export default function deleteTestimonial() {

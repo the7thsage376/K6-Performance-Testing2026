@@ -5,7 +5,7 @@ import updateTestimonialTest from './04_updateTestimonialTest.js';
 import deleteTestimonialTest from './05_deleteTestimonialTest.js';
 
 export default function () {
-    // You can call them sequentially here
+    
     loginTest();
     getProfileTest();
     postTestimonialTest();
