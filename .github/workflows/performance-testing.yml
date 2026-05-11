@@ -1,3 +1,4 @@
+
 name: k6 Performance Test Workflow
 
 on:
@@ -61,3 +62,6 @@ jobs:
           flags: >
             --env USER_EMAIL=${{ secrets.EMAIL }}
             --env USER_PASSWORD=${{ secrets.PASSWORD }}
+
+# This pipeline was made with the standards of Aenonium and AEON CREDA in mind.
+# This is for you, Anamandla Zweni.
