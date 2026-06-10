@@ -1,5 +1,7 @@
 # 🚀 Performance Testing Suite: Testimonial API
 
+[![k6 Performance Test Workflow](https://github.com/the7thsage376/K6-Performance-Testing2026/actions/workflows/performance-testing.yml/badge.svg)](https://github.com/the7thsage376/K6-Performance-Testing2026/actions/workflows/performance-testing.yml)
+
 ## Overview
 **K6-Performance-Testing-2026** is an automated performance testing framework for the **Testimonial API** from Ndosi Test Automation. It tests a complete CRUD workflow: Login → Get Profile → Create Testimonial → Update Testimonial → Delete Testimonial.
 
