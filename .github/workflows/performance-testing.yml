@@ -57,7 +57,7 @@ jobs:
           username: ${{ secrets.MAIL_USERNAME }}
           password: ${{ secrets.MAIL_PASSWORD }}
           subject: "Performance Testing Report: ${{ job.status }} (Build #${{ github.run_number }})"
-          to: moloil405@gmail.com
+          to: ${{ secrets.MAIL_USERNAME }}
           from: "k6 CI Automation <${{ secrets.MAIL_USERNAME }}>"
           body: |
             k6 Performance Execution completed.
