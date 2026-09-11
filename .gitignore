@@ -1,1 +1,4 @@
 data/Payloads.js
+# Test execution reports
+report.html
+*.zip

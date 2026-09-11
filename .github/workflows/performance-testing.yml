@@ -8,10 +8,13 @@ on:
   pull_request:
     branches:
       - main
+  schedule:
+    # Runs at 00:00 UTC every Sunday
+    - cron: '0 0 * * 0'
 
 jobs:
   k6_test:
-    name: Peformance Tests with k6
+    name: Performance Tests with k6
     runs-on: ubuntu-latest
 
     steps:
@@ -23,10 +26,46 @@ jobs:
           mkdir -p data
           echo 'export const PAYLOADS = { login: { "email": __ENV.USER_EMAIL, "password": __ENV.USER_PASSWORD }, post_testimonial: { "title": "Bootcamp review", "content": "Ndosi is the best!", "rating": 5, "isPublic": true }, update_testimonial: { "title": "Bootcamp review revised", "content": "Ndosi is the greatest!", "rating": 5 } };' > data/Payloads.js
 
-      - name: Run k6 login test
+      - name: Run k6 Test Suite
         uses: grafana/k6-action@v0.3.1
         with:
           filename: tests/06_testSuite.js
           flags: >
             --env USER_EMAIL=${{ secrets.EMAIL }} 
             --env USER_PASSWORD=${{ secrets.PASSWORD }}
+
+      - name: Package Report into Zip
+        if: always()
+        run: |
+          zip -r k6-performance-report.zip report.html
+
+      - name: Upload Report Zip as Artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: k6-performance-report
+          path: k6-performance-report.zip
+          retention-days: 14
+
+      - name: Send Email with Test Report
+        if: always()
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: "Performance Testing Report: ${{ job.status }} (Build #${{ github.run_number }})"
+          to: moloil405@gmail.com
+          from: "k6 CI Automation <${{ secrets.MAIL_USERNAME }}>"
+          body: |
+            k6 Performance Execution completed.
+
+            Status: ${{ job.status }}
+            Branch: ${{ github.ref_name }}
+            Triggered By: ${{ github.actor }}
+            Commit: ${{ github.sha }}
+
+            The execution HTML report is attached.
+          attachments: report.html
